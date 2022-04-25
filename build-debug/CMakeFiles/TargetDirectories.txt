@@ -1,0 +1,3 @@
+/Users/batuhan/Documents/C/c-template/build-debug/CMakeFiles/c-app.dir
+/Users/batuhan/Documents/C/c-template/build-debug/CMakeFiles/edit_cache.dir
+/Users/batuhan/Documents/C/c-template/build-debug/CMakeFiles/rebuild_cache.dir
