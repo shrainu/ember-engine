@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.23.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/batuhan/Documents/C/c-template
+CMAKE_SOURCE_DIR = /Users/batuhan/Documents/C/ember-engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/batuhan/Documents/C/c-template/build-debug
+CMAKE_BINARY_DIR = /Users/batuhan/Documents/C/ember-engine/build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/batuhan/Documents/C/c-template/build-debug/CMakeFiles /Users/batuhan/Documents/C/c-template/build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/batuhan/Documents/C/ember-engine/build-debug/CMakeFiles /Users/batuhan/Documents/C/ember-engine/build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/batuhan/Documents/C/c-template/build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/batuhan/Documents/C/ember-engine/build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,144 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named c-app
+# Target rules for targets named ember-engine
 
 # Build rule for target.
-c-app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 c-app
-.PHONY : c-app
+ember-engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ember-engine
+.PHONY : ember-engine
 
 # fast build rule for target.
-c-app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/build
-.PHONY : c-app/fast
+ember-engine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/build
+.PHONY : ember-engine/fast
+
+src/ember-std/parser/parser.o: src/ember-std/parser/parser.c.o
+.PHONY : src/ember-std/parser/parser.o
+
+# target to build an object file
+src/ember-std/parser/parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.o
+.PHONY : src/ember-std/parser/parser.c.o
+
+src/ember-std/parser/parser.i: src/ember-std/parser/parser.c.i
+.PHONY : src/ember-std/parser/parser.i
+
+# target to preprocess a source file
+src/ember-std/parser/parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.i
+.PHONY : src/ember-std/parser/parser.c.i
+
+src/ember-std/parser/parser.s: src/ember-std/parser/parser.c.s
+.PHONY : src/ember-std/parser/parser.s
+
+# target to generate assembly for a file
+src/ember-std/parser/parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.s
+.PHONY : src/ember-std/parser/parser.c.s
+
+src/engine/engine.o: src/engine/engine.c.o
+.PHONY : src/engine/engine.o
+
+# target to build an object file
+src/engine/engine.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/engine.c.o
+.PHONY : src/engine/engine.c.o
+
+src/engine/engine.i: src/engine/engine.c.i
+.PHONY : src/engine/engine.i
+
+# target to preprocess a source file
+src/engine/engine.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/engine.c.i
+.PHONY : src/engine/engine.c.i
+
+src/engine/engine.s: src/engine/engine.c.s
+.PHONY : src/engine/engine.s
+
+# target to generate assembly for a file
+src/engine/engine.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/engine.c.s
+.PHONY : src/engine/engine.c.s
+
+src/engine/shader.o: src/engine/shader.c.o
+.PHONY : src/engine/shader.o
+
+# target to build an object file
+src/engine/shader.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/shader.c.o
+.PHONY : src/engine/shader.c.o
+
+src/engine/shader.i: src/engine/shader.c.i
+.PHONY : src/engine/shader.i
+
+# target to preprocess a source file
+src/engine/shader.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/shader.c.i
+.PHONY : src/engine/shader.c.i
+
+src/engine/shader.s: src/engine/shader.c.s
+.PHONY : src/engine/shader.s
+
+# target to generate assembly for a file
+src/engine/shader.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/shader.c.s
+.PHONY : src/engine/shader.c.s
+
+src/engine/texture.o: src/engine/texture.c.o
+.PHONY : src/engine/texture.o
+
+# target to build an object file
+src/engine/texture.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/texture.c.o
+.PHONY : src/engine/texture.c.o
+
+src/engine/texture.i: src/engine/texture.c.i
+.PHONY : src/engine/texture.i
+
+# target to preprocess a source file
+src/engine/texture.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/texture.c.i
+.PHONY : src/engine/texture.c.i
+
+src/engine/texture.s: src/engine/texture.c.s
+.PHONY : src/engine/texture.s
+
+# target to generate assembly for a file
+src/engine/texture.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/texture.c.s
+.PHONY : src/engine/texture.c.s
+
+src/engine/window.o: src/engine/window.c.o
+.PHONY : src/engine/window.o
+
+# target to build an object file
+src/engine/window.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/window.c.o
+.PHONY : src/engine/window.c.o
+
+src/engine/window.i: src/engine/window.c.i
+.PHONY : src/engine/window.i
+
+# target to preprocess a source file
+src/engine/window.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/window.c.i
+.PHONY : src/engine/window.c.i
+
+src/engine/window.s: src/engine/window.c.s
+.PHONY : src/engine/window.s
+
+# target to generate assembly for a file
+src/engine/window.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/window.c.s
+.PHONY : src/engine/window.c.s
 
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
@@ -142,7 +262,7 @@ src/main.i: src/main.c.i
 
 # target to preprocess a source file
 src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
@@ -150,56 +270,32 @@ src/main.s: src/main.c.s
 
 # target to generate assembly for a file
 src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/shrain-std/map.o: src/shrain-std/map.c.o
-.PHONY : src/shrain-std/map.o
+src/vendor/stb_image/stb_image.o: src/vendor/stb_image/stb_image.c.o
+.PHONY : src/vendor/stb_image/stb_image.o
 
 # target to build an object file
-src/shrain-std/map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/map.c.o
-.PHONY : src/shrain-std/map.c.o
+src/vendor/stb_image/stb_image.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/vendor/stb_image/stb_image.c.o
+.PHONY : src/vendor/stb_image/stb_image.c.o
 
-src/shrain-std/map.i: src/shrain-std/map.c.i
-.PHONY : src/shrain-std/map.i
-
-# target to preprocess a source file
-src/shrain-std/map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/map.c.i
-.PHONY : src/shrain-std/map.c.i
-
-src/shrain-std/map.s: src/shrain-std/map.c.s
-.PHONY : src/shrain-std/map.s
-
-# target to generate assembly for a file
-src/shrain-std/map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/map.c.s
-.PHONY : src/shrain-std/map.c.s
-
-src/shrain-std/parser/parser.o: src/shrain-std/parser/parser.c.o
-.PHONY : src/shrain-std/parser/parser.o
-
-# target to build an object file
-src/shrain-std/parser/parser.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/parser/parser.c.o
-.PHONY : src/shrain-std/parser/parser.c.o
-
-src/shrain-std/parser/parser.i: src/shrain-std/parser/parser.c.i
-.PHONY : src/shrain-std/parser/parser.i
+src/vendor/stb_image/stb_image.i: src/vendor/stb_image/stb_image.c.i
+.PHONY : src/vendor/stb_image/stb_image.i
 
 # target to preprocess a source file
-src/shrain-std/parser/parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/parser/parser.c.i
-.PHONY : src/shrain-std/parser/parser.c.i
+src/vendor/stb_image/stb_image.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/vendor/stb_image/stb_image.c.i
+.PHONY : src/vendor/stb_image/stb_image.c.i
 
-src/shrain-std/parser/parser.s: src/shrain-std/parser/parser.c.s
-.PHONY : src/shrain-std/parser/parser.s
+src/vendor/stb_image/stb_image.s: src/vendor/stb_image/stb_image.c.s
+.PHONY : src/vendor/stb_image/stb_image.s
 
 # target to generate assembly for a file
-src/shrain-std/parser/parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c-app.dir/build.make CMakeFiles/c-app.dir/src/shrain-std/parser/parser.c.s
-.PHONY : src/shrain-std/parser/parser.c.s
+src/vendor/stb_image/stb_image.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/vendor/stb_image/stb_image.c.s
+.PHONY : src/vendor/stb_image/stb_image.c.s
 
 # Help Target
 help:
@@ -209,16 +305,28 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... c-app"
+	@echo "... ember-engine"
+	@echo "... src/ember-std/parser/parser.o"
+	@echo "... src/ember-std/parser/parser.i"
+	@echo "... src/ember-std/parser/parser.s"
+	@echo "... src/engine/engine.o"
+	@echo "... src/engine/engine.i"
+	@echo "... src/engine/engine.s"
+	@echo "... src/engine/shader.o"
+	@echo "... src/engine/shader.i"
+	@echo "... src/engine/shader.s"
+	@echo "... src/engine/texture.o"
+	@echo "... src/engine/texture.i"
+	@echo "... src/engine/texture.s"
+	@echo "... src/engine/window.o"
+	@echo "... src/engine/window.i"
+	@echo "... src/engine/window.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/shrain-std/map.o"
-	@echo "... src/shrain-std/map.i"
-	@echo "... src/shrain-std/map.s"
-	@echo "... src/shrain-std/parser/parser.o"
-	@echo "... src/shrain-std/parser/parser.i"
-	@echo "... src/shrain-std/parser/parser.s"
+	@echo "... src/vendor/stb_image/stb_image.o"
+	@echo "... src/vendor/stb_image/stb_image.i"
+	@echo "... src/vendor/stb_image/stb_image.s"
 .PHONY : help
 
 

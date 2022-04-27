@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(c-app C)
+project(ember-engine C)
 
 # C standard
 set(CMAKE_C_STANDARD 99)
@@ -13,8 +13,29 @@ set(CMAKE_BUILD_TYPE Debug)
 # Set debug macro
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
 
-# Src directory
-include_directories(src)
+# GLFW
+include_directories(/opt/homebrew/Cellar/glfw/3.3.6/include)
+link_directories(/opt/homebrew/Cellar/glfw/3.3.6/lib)
+
+# GLEW
+include_directories(/opt/homebrew/Cellar/glew/2.2.0_1/include)
+link_directories(/opt/homebrew/Cellar/glew/2.2.0_1/lib)
+
+# Freetype
+include_directories(/opt/homebrew/Cellar/freetype/2.11.1/include/freetype2)
+link_directories(/opt/homebrew/Cellar/freetype/2.11.1/lib)
+
+# Common
+include_directories(src/)
+
+# Vendor
+include_directories(src/vendor)
+
+# STB Image files
+set(STB_IMAGE_FILES
+
+    src/vendor/stb_image/stb_image.c
+)
 
 # Source files
 set(SOURCE_FILES
@@ -22,18 +43,35 @@ set(SOURCE_FILES
     # src
     src/main.c src/common.h
 
-    # shrain-std
-    src/shrain-std/util.h
-    src/shrain-std/list.h
-    src/shrain-std/string.h
-    src/shrain-std/map.h            src/shrain-std/map.c
+    # ember-std
+    src/ember-std/map.h
+    src/ember-std/list.h
+    src/ember-std/util.h
+    src/ember-std/string.h
 
-    # shrain-std/parser
-    src/shrain-std/parser/parser.c  src/shrain-std/parser/parser.h
+    # ember-std/parser
+    src/ember-std/parser/parser.c   src/ember-std/parser/parser.h
+
+    # engine
+    src/engine/engine.c src/engine/engine.h
+    src/engine/window.c src/engine/window.h
+    src/engine/texture.c src/engine/texture.h
+    src/engine/shader.c src/engine/shader.h
+    src/engine/renderer.c src/engine/renderer.h
+    #src/engine/init.c src/engine/init.h
+    #src/engine/font.c src/engine/font.h
 )
 
 # Executable
-add_executable(c-app ${SOURCE_FILES})
+add_executable(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
+
+# Find OpenGL
+find_package(OpenGL REQUIRED)
 
 # Link libraries
-#target_link_libraries()
+target_link_libraries(ember-engine
+    OpenGL::GL
+    freetype.a
+    GLEW
+    glfw
+)

@@ -1,10 +1,17 @@
 #pragma once
 
+// GLEW
+#define GLEW_STATIC
+#include <GL/glew.h>
+
+// GLFW
+#include <GLFW/glfw3.h>
+
 // shrain-std
-#include "shrain-std/map.h"
-#include "shrain-std/util.h"
-#include "shrain-std/list.h"
-#include "shrain-std/string.h"
+#include "ember-std/map.h"
+#include "ember-std/util.h"
+#include "ember-std/list.h"
+#include "ember-std/string.h"
 
 // Standard library
 #include <stdio.h>

@@ -21,6 +21,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Compiler/Clang.cmake"
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Compiler/GNU.cmake"
+  "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/FindOpenGL.cmake"
+  "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/FindPackageMessage.cmake"
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.23.0/share/cmake/Modules/Platform/Apple-Clang.cmake"
@@ -42,5 +45,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/c-app.dir/DependInfo.cmake"
+  "CMakeFiles/ember-engine.dir/DependInfo.cmake"
   )
