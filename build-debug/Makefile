@@ -177,6 +177,30 @@ src/engine/engine.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/engine.c.s
 .PHONY : src/engine/engine.c.s
 
+src/engine/renderer.o: src/engine/renderer.c.o
+.PHONY : src/engine/renderer.o
+
+# target to build an object file
+src/engine/renderer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/renderer.c.o
+.PHONY : src/engine/renderer.c.o
+
+src/engine/renderer.i: src/engine/renderer.c.i
+.PHONY : src/engine/renderer.i
+
+# target to preprocess a source file
+src/engine/renderer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/renderer.c.i
+.PHONY : src/engine/renderer.c.i
+
+src/engine/renderer.s: src/engine/renderer.c.s
+.PHONY : src/engine/renderer.s
+
+# target to generate assembly for a file
+src/engine/renderer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/renderer.c.s
+.PHONY : src/engine/renderer.c.s
+
 src/engine/shader.o: src/engine/shader.c.o
 .PHONY : src/engine/shader.o
 
@@ -312,6 +336,9 @@ help:
 	@echo "... src/engine/engine.o"
 	@echo "... src/engine/engine.i"
 	@echo "... src/engine/engine.s"
+	@echo "... src/engine/renderer.o"
+	@echo "... src/engine/renderer.i"
+	@echo "... src/engine/renderer.s"
 	@echo "... src/engine/shader.o"
 	@echo "... src/engine/shader.i"
 	@echo "... src/engine/shader.s"
