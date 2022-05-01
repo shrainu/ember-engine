@@ -24,6 +24,8 @@ void EMBER_InitWindowProperties();
 /* Initializes GLFW & GLEW and creates a window with the properties from config file */
 bool EMBER_InitWindow();
 
+void EMBER_TerminateWindow();
+
 
 // Window
 

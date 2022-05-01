@@ -63,14 +63,10 @@ EMBER_Shader* EMBER_ShaderNew(const char* vertex_path, const char* fragment_path
     // Allocate memory for the shader
     EMBER_Shader* shader = (EMBER_Shader*) malloc(sizeof(EMBER_Shader));
 
-    // Find paths for source files
-    String vertex_string   = EMBER_GetRelativePath(vertex_path);
-    String fragment_string = EMBER_GetRelativePath(fragment_path);
-
     // Create the shader
     uint32_t program = glCreateProgram();
-    uint32_t vs = EMBER_ShaderCompile(GL_VERTEX_SHADER,   read_file(vertex_string.buffer));
-    uint32_t fs = EMBER_ShaderCompile(GL_FRAGMENT_SHADER, read_file(fragment_string.buffer));
+    uint32_t vs = EMBER_ShaderCompile(GL_VERTEX_SHADER,   read_file(vertex_path));
+    uint32_t fs = EMBER_ShaderCompile(GL_FRAGMENT_SHADER, read_file(fragment_path));
 
 	if (!(vs) || !(fs)) 
 		return 0;
@@ -91,10 +87,6 @@ EMBER_Shader* EMBER_ShaderNew(const char* vertex_path, const char* fragment_path
         // Free memory
         free(shader);
 
-        // Free strings
-        STRING_FREE(&vertex_string);
-        STRING_FREE(&fragment_string);
-
         // Cleanup
         glDeleteProgram(program);
         glDeleteShader(vs);
@@ -105,13 +97,12 @@ EMBER_Shader* EMBER_ShaderNew(const char* vertex_path, const char* fragment_path
 
     glValidateProgram(program);
 
-    // Free strings
-    STRING_FREE(&vertex_string);
-    STRING_FREE(&fragment_string);
-
     // Cleanup
     glDeleteShader(vs);
     glDeleteShader(fs);
+
+    // Add program to shader
+    shader->id = program;
 
     return shader;
 }
@@ -139,4 +130,21 @@ void EMBER_ShaderUnbind() {
     s_ember_bound_shader_ = NULL;
 
     glUseProgram(0);
+}
+
+
+// Uniforms
+
+void EMBER_ShaderSetInt(const EMBER_Shader* shader, const char* location, int32_t value) {
+
+    int32_t loc = glGetUniformLocation(shader->id, location);
+
+#ifdef DEBUG
+    if (loc == -1) {
+        printf("WARNING: '%s' is not a valid uniform location.\n", location);
+        return;
+    }
+#endif
+
+    glUniform1i(loc, value);
 }

@@ -72,6 +72,6 @@ find_package(OpenGL REQUIRED)
 target_link_libraries(ember-engine
     OpenGL::GL
     freetype.a
-    GLEW
+    GLEW.a
     glfw
 )

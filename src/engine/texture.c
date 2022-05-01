@@ -9,18 +9,15 @@
 
 EMBER_Texture* EMBER_TextureNew(const char* path, uint32_t filter) {
 
-    // Get path
-    String path_string = EMBER_GetRelativePath(path);
-
     // Allocate memory for texture
     EMBER_Texture* texture = (EMBER_Texture*) malloc(sizeof(EMBER_Texture));
 
     // Load the image
     stbi_set_flip_vertically_on_load(true);
-	uint8_t* local_buffer = stbi_load(path_string.buffer, &texture->width, &texture->height, &texture->bpp, 4);
+	uint8_t* local_buffer = stbi_load(path, &texture->width, &texture->height, &texture->bpp, 4);
 
     if (!local_buffer) {
-        printf("ERROR : Image file \"%s\" could not be read.\n", path_string.buffer);
+        printf("ERROR : Image file \"%s\" could not be read.\n", path);
 
         free(texture);
         return NULL;

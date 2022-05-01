@@ -46,3 +46,8 @@ void EMBER_ShaderFree(EMBER_Shader* shader);
 void EMBER_ShaderBind(const EMBER_Shader* shader);
 
 void EMBER_ShaderUnbind();
+
+
+// Uniforms
+
+void EMBER_ShaderSetInt(const EMBER_Shader* shader, const char* location, int32_t value);

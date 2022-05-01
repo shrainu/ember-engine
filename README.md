@@ -2,18 +2,16 @@
 
 Ember Game Engine is a lightweight game engine which is focused around simplicity.
 
-> Version 0.01
+> Version 0.03
 
 ## Patch Notes
 
-- Initialization systems implemented
-- Window systems implemented
-- YAML Parser
+- Performance Tracking
 
 ## Features
 
-- Simple UI
+- Simple UI (NOT IMPLEMENTED)
 - Batched Rendering
-- No boilerplate features
-- No need for working around the engine to achive something
+- No boilerplate features (NOT IMPLEMENTED)
+- No need for working around the engine to achive something (NOT IMPLEMENTED)
 

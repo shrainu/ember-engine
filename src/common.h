@@ -7,6 +7,9 @@
 // GLFW
 #include <GLFW/glfw3.h>
 
+// C-GLM
+#include <cglm/struct.h>
+
 // shrain-std
 #include "ember-std/map.h"
 #include "ember-std/util.h"

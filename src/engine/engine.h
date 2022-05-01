@@ -3,6 +3,34 @@
 #include "common.h"
 
 
+// OpenGL Debugging
+
+#define EMBER_GL_CLEAR_ERROR() \
+   while(glGetError() != GL_NO_ERROR);
+
+#define EMBER_GL_CHECK_ERROR(func, args...) \
+   { \
+      func(args); \
+      uint32_t err; \
+      if ((err = glGetError()) != GL_NO_ERROR) { \
+         const char* msg = gluErrorString(err); \
+         printf("ERROR: @%s %s:%d - %d.\n", #func, __FILE__, __LINE__, err); \
+      } \
+   }
+
+
+// Performance
+
+/* Calculates the delta time and the FPS */
+void EMBER_CalculateFrametime();
+
+/* Returns the delta time */
+double EMBER_GetDeltaTime();
+
+/* Returns the FPS */
+uint32_t EMBER_GetFPS();
+
+
 // Working Directory
 
 /* This function should not be called outside of the engine */
@@ -27,3 +55,6 @@ String EMBER_GetConfigPath();
 
 /* Initializes the whole Ember Engine */
 bool EMBER_InitEngine(int argc, char* argv[]);
+
+/* Terminates the whole Ember Engine */
+void EMBER_TerminateEngine();
