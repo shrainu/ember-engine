@@ -2,14 +2,12 @@
 
 Ember Game Engine is a lightweight game engine which is focused around simplicity.
 
-> Version 0.04
+> Version 0.05
 
 ## Patch Notes
 
-- Removed batched rendering
-- Added normal rendering
-- Cameras
-- Default Projection
+- Texture rendering.
+- Binding shader before rendering is mandatory now.
 
 ## Features
 

@@ -204,10 +204,6 @@ void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color) {
 
     // Get the bound shader
     const EMBER_Shader* bound_shader = EMBER_GetBoundShader();
-    if (!bound_shader) {
-        bound_shader = s_ember_default_quad_shader_;
-        EMBER_ShaderBind(bound_shader);
-    }
 
     // Calculate model
     mat4 model;
@@ -247,7 +243,51 @@ void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color) {
 
     // Unbind the texture
     glBindTexture(GL_TEXTURE_2D, 0);
+}
 
-    // Unbind the shader
-    EMBER_ShaderUnbind();
+
+// Render functions
+
+void EMBER_RenderTexture(EMBER_Texture* texture, vec3 position, vec2 size, vec4 color) {
+
+    // Get the bound shader
+    const EMBER_Shader* bound_shader = EMBER_GetBoundShader();
+
+    // Calculate model
+    mat4 model;
+    glm_mat4_identity(model);
+    glm_translate(model, position);
+    glm_scale(model, (vec3) {size[0], size[1], 1.0f});
+
+    // Calculate mvp
+    mat4 mvp;
+    const EMBER_Camera* bound_camera = EMBER_GetBoundCamera();
+    if (!bound_camera) {
+        glm_mat4_mul((vec4*) EMBER_GetDefaultProjection(), model, mvp);
+    } else {
+        glm_mat4_mul((vec4*) bound_camera->proj, model, mvp);
+        glm_mat4_mul((vec4*) bound_camera->view, mvp, mvp);
+    }
+
+    // Send uniforms
+    EMBER_ShaderSetInt(bound_shader, "u_texture", 0);
+    EMBER_ShaderSetVec4(bound_shader, "u_color", color);
+    EMBER_ShaderSetMat4(bound_shader, "u_mvp", mvp);
+
+    // Bind the texture
+    EMBER_TextureBind(texture, 0);
+
+    // Bind buffers
+    glBindVertexArray(s_ember_renderer_.vao);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, s_ember_renderer_.ebo);
+
+    // Render
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (const void*) 0);
+
+    // Unbind buffers
+    glBindVertexArray(0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    // Unbind the texture
+     EMBER_TextureUnbind();
 }

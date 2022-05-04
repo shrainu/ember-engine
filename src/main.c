@@ -21,6 +21,8 @@ int main(int argc, char* argv[]) {
 
     double fps_timer = 3.0;
 
+    const EMBER_Shader* shader = EMBER_GetDefaultQuadShader();
+
     while(!EMBER_WindowShouldClose()) {
 
         // Pre-loop
@@ -46,13 +48,14 @@ int main(int argc, char* argv[]) {
         EMBER_ClearColor(0.06f, 0.01f, 0.12f);
         EMBER_Clear(GL_COLOR_BUFFER_BIT);
 
-        EMBER_ShaderBind(EMBER_GetDefaultQuadShader());
+        EMBER_ShaderBind(shader);
 
         for (int32_t i = 0; i < 1000; ++i) {
-            EMBER_RenderQuad(
+            EMBER_RenderTexture(
+                    texture,
                     (vec3){50.0f, 50.0f, -1.0f},
-                    (vec2){50.0f, 50.0f},
-                    (vec4){0.24f, 0.2f, 0.48f, 1.0f}
+                    (vec2){75.0f, 75.0f},
+                    (vec4){1.0f, 1.0f, 1.0f, 1.0f}
             );
         }
 

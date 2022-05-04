@@ -38,3 +38,9 @@ void EMBER_TerminateRenderer();
 
 /* Renders a quad with given parameters */
 void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color);
+
+
+// Render functions
+
+/* Renders a texture with given parameters */
+void EMBER_RenderTexture(EMBER_Texture* texture, vec3 position, vec2 size, vec4 color);
