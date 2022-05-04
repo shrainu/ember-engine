@@ -1,14 +1,13 @@
 #version 330 core
 
-in vec4 v_color;
 in vec2 v_tex_coords;
-flat in float v_tex_index;
 
-uniform sampler2D u_textures[16];
+uniform sampler2D u_texture;
+uniform vec4 u_color;
 
-out vec4 color;
+out vec4 f_color;
 
 void main() {
-    int index = int(v_tex_index);
-    color = texture(u_textures[index], v_tex_coords) * v_color;
+
+    f_color = texture(u_texture, v_tex_coords) * u_color;
 }

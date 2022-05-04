@@ -50,6 +50,12 @@ void EMBER_Clear(uint32_t flags);
 void EMBER_ApplyWindowSettings();
 
 
+// Window Size
+
+/* Returns the current window size */
+vec2s EMBER_GetWindowSize();
+
+
 // Window Mode
 
 /* Sets the window mode, and applies the latest changes to the window */
@@ -91,7 +97,7 @@ bool EMBER_GetVSync();
    Pass EMBER_NATIVE_REFRESH_RATE for active monitor's default refresh rate */
 void EMBER_SetRefreshRate(int32_t fps);
 
-int32_t EMBER_GetRefreshRate();
+uint32_t EMBER_GetRefreshRate();
 
 
 // Retina Mode

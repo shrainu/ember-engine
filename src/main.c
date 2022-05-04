@@ -6,8 +6,6 @@
 #include "engine/window.h"
 #include "engine/renderer.h"
 
-#include "ember-std/parser/parser.h"
-
 
 int main(int argc, char* argv[]) {
 
@@ -45,33 +43,20 @@ int main(int argc, char* argv[]) {
         // Update
 
         // Render
-        EMBER_ClearColor(0.06, 0.01, 0.12);
+        EMBER_ClearColor(0.06f, 0.01f, 0.12f);
         EMBER_Clear(GL_COLOR_BUFFER_BIT);
 
-        // Initiating multiple batches to test the performance
-        // On MacOS, initiating 100 batches result in 30 FPS.
-        // Which is really low.
+        EMBER_ShaderBind(EMBER_GetDefaultQuadShader());
 
-        for (int32_t i = 0; i < 100; ++i) {
-            EMBER_BeginBatch(NULL);
-
+        for (int32_t i = 0; i < 1000; ++i) {
             EMBER_RenderQuad(
-                (vec3s) {0.0, -0.5, -1.0},
-                (vec2s) {0.5, 1.0},
-                (vec4s) {0.5, 0.12, 1.0, 1.0}
+                    (vec3){50.0f, 50.0f, -1.0f},
+                    (vec2){50.0f, 50.0f},
+                    (vec4){0.24f, 0.2f, 0.48f, 1.0f}
             );
-
-            /*
-            EMBER_RenderTexture(
-                texture,
-                (vec3s) {-0.5, -0.5, -1.0},
-                (vec2s) {0.5, 1.0},
-                (vec4s) {0.7, 1.0, 0.2, 1.0}
-            );
-            */
-
-            EMBER_EndBatch();
         }
+
+        EMBER_ShaderUnbind();
 
         EMBER_SwapBuffers();
         glfwPollEvents();

@@ -2,6 +2,7 @@
 
 #include "window.h"
 #include "renderer.h"
+#include "camera.h"
 
 
 // Static
@@ -113,6 +114,9 @@ bool EMBER_InitEngine(int argc, char* argv[]) {
     if (!EMBER_InitRenderer()) {
         return false;
     }
+
+    // Set the default projection
+    EMBER_InitDefaultProjection();
 
     return true;
 }

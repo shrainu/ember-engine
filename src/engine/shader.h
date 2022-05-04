@@ -51,3 +51,7 @@ void EMBER_ShaderUnbind();
 // Uniforms
 
 void EMBER_ShaderSetInt(const EMBER_Shader* shader, const char* location, int32_t value);
+
+void EMBER_ShaderSetVec4(const EMBER_Shader* shader, const char* location, vec4 vec4);
+
+void EMBER_ShaderSetMat4(const EMBER_Shader* shader, const char* location, mat4 mat4);

@@ -5,10 +5,10 @@ window:
   height: 720
   vsync: false
   refresh-rate: -1 # -1 Means default refresh rate for monitor
-  retina: false   # For retina displays
+  retina: true   # For retina displays
   # WINDOWED            = 0
   # FULLSCREEN          = 1
-  # WINDOWED FULSCREEN  = 2
+  # WINDOWED FULLSCREEN  = 2
   window-mode: 0
   # Only applied for fullscreen, overrides the current resolution
   maximize: false

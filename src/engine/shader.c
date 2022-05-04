@@ -148,3 +148,31 @@ void EMBER_ShaderSetInt(const EMBER_Shader* shader, const char* location, int32_
 
     glUniform1i(loc, value);
 }
+
+void EMBER_ShaderSetVec4(const EMBER_Shader* shader, const char* location, vec4 vec4) {
+
+    int32_t loc = glGetUniformLocation(shader->id, location);
+
+#ifdef DEBUG
+    if (loc == -1) {
+        printf("WARNING: '%s' is not a valid uniform location.\n", location);
+        return;
+    }
+#endif
+
+    glUniform4fv(loc, 1, vec4);
+}
+
+void EMBER_ShaderSetMat4(const EMBER_Shader* shader, const char* location, mat4 mat4) {
+
+    int32_t loc = glGetUniformLocation(shader->id, location);
+
+#ifdef DEBUG
+    if (loc == -1) {
+        printf("WARNING: '%s' is not a valid uniform location.\n", location);
+        return;
+    }
+#endif
+
+    glUniformMatrix4fv(loc, 1, GL_FALSE, mat4[0]);
+}

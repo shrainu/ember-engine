@@ -8,8 +8,8 @@
 // Properties
 
 static String s_ember_app_name_;
-static uint32_t s_ember_window_width_;
-static uint32_t s_ember_window_height_;
+static int32_t s_ember_window_width_;
+static int32_t s_ember_window_height_;
 static bool s_ember_vsync_;
 static bool s_ember_retina_;
 static int32_t s_ember_window_mode_;
@@ -21,7 +21,7 @@ static int32_t s_ember_monitor_index_;
 // Window
 
 static GLFWwindow* s_ember_glfw_window_;
-static uint32_t s_ember_refresh_rate_;
+static int32_t s_ember_refresh_rate_;
 
 
 // Monitor
@@ -174,7 +174,7 @@ void EMBER_SwapBuffers() {
 }
 
 void EMBER_ClearColor(float r, float g, float b) {
-    glClearColor(r, g, b, 1.0);
+    glClearColor(r, g, b, 1.0f);
 }
 
 void EMBER_Clear(uint32_t flags) {
@@ -187,6 +187,13 @@ void EMBER_Clear(uint32_t flags) {
 void EMBER_ApplyWindowSettings() {
 
     EMBER_SetWindowMode(s_ember_window_mode_);
+}
+
+
+// Window Size
+
+vec2s EMBER_GetWindowSize() {
+    return (vec2s) {(float)s_ember_window_width_, (float)s_ember_window_height_};
 }
 
 
@@ -204,8 +211,8 @@ void EMBER_SetWindowMode(int32_t mode) {
 
     if (s_ember_window_mode_ == EMBER_WINDOW_MODE_WINDOWED | 
         s_ember_window_mode_ == EMBER_WINDOW_MODE_WINDOWED_FULLSCREEN) {
-        posx = (video_mode->width  - s_ember_window_width_)  / 2;
-        posy = (video_mode->height - s_ember_window_height_) / 2;
+        posx = (video_mode->width  - (int32_t) s_ember_window_width_)  / 2;
+        posy = (video_mode->height - (int32_t) s_ember_window_height_) / 2;
     }
     
     if (s_ember_window_mode_ == EMBER_WINDOW_MODE_WINDOWED_FULLSCREEN) {
@@ -244,7 +251,7 @@ void EMBER_SetMonitor(uint32_t monitor) {
 
     GLFWmonitor** monitors = EMBER_GetAvailableMonitors();
 
-    s_ember_monitor_index_ = monitor;
+    s_ember_monitor_index_ = (int32_t) monitor;
     s_ember_monitor_ = monitors[s_ember_monitor_index_];
 }
 
@@ -301,7 +308,7 @@ void EMBER_SetRefreshRate(int32_t fps) {
     }
 }
 
-int32_t EMBER_GetRefreshRate() {
+uint32_t EMBER_GetRefreshRate() {
     return s_ember_refresh_rate_;
 }
 

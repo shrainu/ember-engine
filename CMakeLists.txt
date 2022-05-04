@@ -8,10 +8,10 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../product)
 
 # Set debug
-set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
 
 # Set debug macro
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
+#set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
 
 # GLFW
 include_directories(/opt/homebrew/Cellar/glfw/3.3.6/include)
@@ -58,8 +58,10 @@ set(SOURCE_FILES
     src/engine/texture.c src/engine/texture.h
     src/engine/shader.c src/engine/shader.h
     src/engine/renderer.c src/engine/renderer.h
+    src/engine/camera.c src/engine/camera.h
     #src/engine/init.c src/engine/init.h
     #src/engine/font.c src/engine/font.h
+
 )
 
 # Executable
