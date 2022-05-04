@@ -5,6 +5,7 @@
 #include "engine/engine.h"
 #include "engine/window.h"
 #include "engine/renderer.h"
+#include "engine/camera.h"
 
 
 int main(int argc, char* argv[]) {
@@ -22,6 +23,8 @@ int main(int argc, char* argv[]) {
     double fps_timer = 3.0;
 
     const EMBER_Shader* shader = EMBER_GetDefaultQuadShader();
+
+    EMBER_Camera* camera = EMBER_CameraNew(0, 1280, 0, 720);
 
     while(!EMBER_WindowShouldClose()) {
 
@@ -49,6 +52,7 @@ int main(int argc, char* argv[]) {
         EMBER_Clear(GL_COLOR_BUFFER_BIT);
 
         EMBER_ShaderBind(shader);
+        EMBER_CameraBegin(camera);
 
         for (int32_t i = 0; i < 1000; ++i) {
             EMBER_RenderTexture(
@@ -59,6 +63,7 @@ int main(int argc, char* argv[]) {
             );
         }
 
+        EMBER_CameraEnd();
         EMBER_ShaderUnbind();
 
         EMBER_SwapBuffers();
@@ -66,6 +71,7 @@ int main(int argc, char* argv[]) {
     }
 
     EMBER_TextureFree(texture);
+    EMBER_CameraFree(camera);
 
     EMBER_TerminateEngine();
 

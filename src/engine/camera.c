@@ -35,13 +35,15 @@ const vec4* EMBER_GetDefaultProjection() {
 
 // Constructor and destructor
 
-EMBER_Camera* EMBER_CameraNew(float left, float right, float up, float down) {
+EMBER_Camera* EMBER_CameraNew(float left, float right, float bottom, float top) {
 
     // Allocate memory for camera
     EMBER_Camera* camera = (EMBER_Camera*) malloc(sizeof(EMBER_Camera));
 
     // Initialize the camera projection & view
-    glm_ortho(left, right, up, down, S_EMBER_DEFAULT_NEAR_, S_EMBER_DEFAULT_FAR_, camera->proj);
+    glm_ortho(left, right, bottom, top, S_EMBER_DEFAULT_NEAR_, S_EMBER_DEFAULT_FAR_, camera->proj);
+
+    glm_mat4_identity(camera->view);
     glm_translate(camera->view, (vec3) {0, 0, 0});
 
     // Return the camera
@@ -81,6 +83,6 @@ void EMBER_CameraSetPosition(EMBER_Camera* camera, vec3 pos) {
     glm_translate(camera->view, pos);
 }
 
-void EMBER_CameraSetProjection(EMBER_Camera* camera, float left, float right, float up, float down) {
-    glm_ortho(left, right, up, down, S_EMBER_DEFAULT_NEAR_, S_EMBER_DEFAULT_FAR_, camera->proj);
+void EMBER_CameraSetProjection(EMBER_Camera* camera, float left, float right, float bottom, float top) {
+    glm_ortho(left, right, bottom, top, S_EMBER_DEFAULT_NEAR_, S_EMBER_DEFAULT_FAR_, camera->proj);
 }
