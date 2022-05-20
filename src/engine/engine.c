@@ -10,7 +10,7 @@
 /* This variable leaks memory, this is intentional */
 static String s_ember_working_directory_;
 
-static const char* s_ember_config_path_ = "config.yaml";
+static const char* s_ember_config_path_ = "config.toml";
 
 // Performance related variables
 

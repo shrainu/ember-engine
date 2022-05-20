@@ -3,6 +3,7 @@
 #include "engine.h"
 
 #include "ember-std/parser/parser.h"
+#include "toml_parser.h"
 
 
 // Properties
@@ -37,7 +38,8 @@ void EMBER_InitWindowProperties() {
     String config_path = EMBER_GetConfigPath();
     
     // Read the config file
-    Map* map = EMBER_ParseYaml(config_path.buffer);
+    TOMLStringMap* map = NULL;
+    toml_parser_parse(&map, config_path.buffer);
     
     if (!map) {
         printf("ERROR: Could not parse the config file of the app.\n");
@@ -47,28 +49,28 @@ void EMBER_InitWindowProperties() {
     }
 
     // Set window properties
-    s_ember_app_name_ = MAP_PARSE_STRING(map, "name");
+    s_ember_app_name_ = STRING_NEW(toml_parser_get_string(map, "window", "title"));
 
-    s_ember_window_width_ = MAP_PARSE_INT(map, "width");
+    s_ember_window_width_ = toml_parser_get_int(map, "window", "width");
 
-    s_ember_window_height_ = MAP_PARSE_INT(map, "height");
+    s_ember_window_height_ = toml_parser_get_int(map, "window", "height");
 
-    s_ember_vsync_ = MAP_PARSE_BOOL(map, "vsync");
+    s_ember_vsync_ = toml_parser_get_bool(map, "window", "vsync");
 
-    s_ember_refresh_rate_ = MAP_PARSE_INT(map, "refresh-rate");
+    s_ember_refresh_rate_ = toml_parser_get_int(map, "window", "refresh-rate");
 
-    s_ember_retina_ = MAP_PARSE_BOOL(map, "retina");
+    s_ember_retina_ = toml_parser_get_bool(map, "window", "retina");
 
-    s_ember_window_mode_ = MAP_PARSE_INT(map, "window-mode");
+    s_ember_window_mode_ = toml_parser_get_int(map, "window", "window-mode");
 
-    s_ember_maximize_ = MAP_PARSE_BOOL(map, "maximize");
+    s_ember_maximize_ = toml_parser_get_bool(map, "window", "maximize");
 
-    s_ember_resizable_ = MAP_PARSE_BOOL(map, "resizable");
+    s_ember_resizable_ = toml_parser_get_bool(map, "window", "resizable");
 
-    s_ember_monitor_index_ = MAP_PARSE_INT(map, "monitor");
+    s_ember_monitor_index_ = toml_parser_get_int(map, "window", "monitor");
 
     // Free the map
-    MAP_FREE(map);
+    toml_parser_free(map);
 }
 
 bool EMBER_InitWindow() {

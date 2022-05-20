@@ -28,6 +28,10 @@ link_directories(/opt/homebrew/Cellar/glew/2.2.0_1/lib)
 include_directories(/opt/homebrew/Cellar/freetype/2.11.1/include/freetype2)
 link_directories(/opt/homebrew/Cellar/freetype/2.11.1/lib)
 
+# Toml Parser
+include_directories(product/dep/parser)
+link_directories(product/dep/parser)
+
 # Common
 include_directories(src/)
 
@@ -80,6 +84,7 @@ find_package(OpenGL REQUIRED)
 # Link libraries
 target_link_libraries(ember-engine
     OpenGL::GL
+    toml_parser.dylib
     freetype.a
     GLEW.a
     glfw

@@ -1,0 +1,11 @@
+[window]
+title = "Ember Game Engine"
+width = 1280
+height = 720
+vsync = false
+refresh-rate = -1
+retina = true
+window-mode = 0
+maximize = false
+resizable = false
+monitor = 0
