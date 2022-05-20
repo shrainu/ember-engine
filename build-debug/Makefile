@@ -153,6 +153,30 @@ src/ember-std/parser/parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.s
 .PHONY : src/ember-std/parser/parser.c.s
 
+src/engine/camera.o: src/engine/camera.c.o
+.PHONY : src/engine/camera.o
+
+# target to build an object file
+src/engine/camera.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/camera.c.o
+.PHONY : src/engine/camera.c.o
+
+src/engine/camera.i: src/engine/camera.c.i
+.PHONY : src/engine/camera.i
+
+# target to preprocess a source file
+src/engine/camera.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/camera.c.i
+.PHONY : src/engine/camera.c.i
+
+src/engine/camera.s: src/engine/camera.c.s
+.PHONY : src/engine/camera.s
+
+# target to generate assembly for a file
+src/engine/camera.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/camera.c.s
+.PHONY : src/engine/camera.c.s
+
 src/engine/engine.o: src/engine/engine.c.o
 .PHONY : src/engine/engine.o
 
@@ -333,6 +357,9 @@ help:
 	@echo "... src/ember-std/parser/parser.o"
 	@echo "... src/ember-std/parser/parser.i"
 	@echo "... src/ember-std/parser/parser.s"
+	@echo "... src/engine/camera.o"
+	@echo "... src/engine/camera.i"
+	@echo "... src/engine/camera.s"
 	@echo "... src/engine/engine.o"
 	@echo "... src/engine/engine.i"
 	@echo "... src/engine/engine.s"

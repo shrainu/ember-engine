@@ -91,12 +91,10 @@ bool EMBER_InitWindow() {
 #endif
 
     // Window hints
-    if (s_ember_resizable_) {
-        glfwWindowHint(GLFW_RESIZABLE, (int) s_ember_resizable_);
-    }
-    if (s_ember_maximize_) {
-        glfwWindowHint(GLFW_MAXIMIZED, (int) s_ember_maximize_);
-    }
+
+    glfwWindowHint(GLFW_RESIZABLE, (int) s_ember_resizable_); // Set resizable
+
+    glfwWindowHint(GLFW_MAXIMIZED, (int) s_ember_maximize_); //  Set maximize
 
     // Create window
     s_ember_glfw_window_ = glfwCreateWindow(

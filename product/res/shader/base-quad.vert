@@ -9,7 +9,6 @@ out vec2 v_tex_coords;
 
 void main() {
     gl_Position = u_mvp * vec4(a_pos, 1.0);
-
     v_tex_coords = vec2(a_pos.xy);
 }
 

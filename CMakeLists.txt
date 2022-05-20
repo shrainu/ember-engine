@@ -7,6 +7,9 @@ set(CMAKE_C_STANDARD 99)
 # Runtime output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../product)
 
+# Library output directory
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ../product/lib)
+
 # Set debug
 #set(CMAKE_BUILD_TYPE Debug)
 
@@ -40,6 +43,9 @@ set(STB_IMAGE_FILES
 # Source files
 set(SOURCE_FILES
 
+    # ember
+    src/ember.h
+
     # src
     src/main.c src/common.h
 
@@ -53,19 +59,20 @@ set(SOURCE_FILES
     src/ember-std/parser/parser.c   src/ember-std/parser/parser.h
 
     # engine
+    src/engine/font.c src/engine/font.h
     src/engine/engine.c src/engine/engine.h
     src/engine/window.c src/engine/window.h
-    src/engine/texture.c src/engine/texture.h
-    src/engine/shader.c src/engine/shader.h
-    src/engine/renderer.c src/engine/renderer.h
     src/engine/camera.c src/engine/camera.h
-    #src/engine/init.c src/engine/init.h
-    #src/engine/font.c src/engine/font.h
-
+    src/engine/shader.c src/engine/shader.h
+    src/engine/texture.c src/engine/texture.h
+    src/engine/renderer.c src/engine/renderer.h
 )
 
 # Executable
 add_executable(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
+
+# Library
+#add_library(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
 
 # Find OpenGL
 find_package(OpenGL REQUIRED)

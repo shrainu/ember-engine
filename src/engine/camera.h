@@ -15,7 +15,7 @@ typedef struct EMBER_Camera {
 
 #ifdef EMBER_SHORT_API
 
-typedef EMBER_Camera * Camera;
+typedef EMBER_Camera* Camera;
 
 #endif
 

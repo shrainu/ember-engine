@@ -2,11 +2,13 @@
 
 Ember Game Engine is a lightweight game engine which is focused around simplicity.
 
-> Version 0.05a
+> Version 0.06
 
 ## Patch Notes
 
-- Typo fix
+- Font loading
+- Font rendering
+- Font types
 
 ## Features
 

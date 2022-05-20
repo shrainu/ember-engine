@@ -10,7 +10,7 @@
 // C-GLM
 #include <cglm/struct.h>
 
-// shrain-std
+// ember-std
 #include "ember-std/map.h"
 #include "ember-std/util.h"
 #include "ember-std/list.h"

@@ -2,6 +2,7 @@
 
 #include "common.h"
 
+#include "font.h"
 #include "shader.h"
 #include "texture.h"
 
@@ -43,4 +44,10 @@ void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color);
 // Render functions
 
 /* Renders a texture with given parameters */
-void EMBER_RenderTexture(EMBER_Texture* texture, vec3 position, vec2 size, vec4 color);
+void EMBER_RenderTexture(const EMBER_Texture* texture, vec3 position, vec2 size, vec4 color);
+
+
+// Text Render Functions
+
+/* Renders a text with given parameters. This function initiates a draw call for each character. */
+void EMBER_RenderText(const EMBER_Font* font, const char* text, vec3 position, vec4 color, float scale);
