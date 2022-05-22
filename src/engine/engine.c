@@ -66,7 +66,12 @@ void EMBER_SetWorkingDirectory(const char* path) {
 
     s_ember_working_directory_ = STRING_NEW(path);
 
-    int32_t index = STRING_FIND_LAST(s_ember_working_directory_, "/");
+    int32_t index = -1;
+#if defined(_WIN32) || defined(__CYGWIN__)
+    STRING_FIND_LAST(s_ember_working_directory_, "\\");
+#else
+    STRING_FIND_LAST(s_ember_working_directory_, "/");
+#endif
 
     if (index == -1) {
         printf("ERROR: Failed to figure the working directory.\n");

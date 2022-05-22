@@ -87,7 +87,7 @@ int main(int argc, char* argv[]) {
         EMBER_ShaderBind(quad_shader);
         EMBER_CameraBegin(camera);
 
-        for (int32_t i = 0; i < 1; ++i) {
+        for (int32_t i = 0; i < 1000; ++i) {
             EMBER_RenderTexture(
                 texture,
                 (vec3){50.0f, 50.0f, -1.0f},
