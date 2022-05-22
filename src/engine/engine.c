@@ -68,9 +68,9 @@ void EMBER_SetWorkingDirectory(const char* path) {
 
     int32_t index = -1;
 #if defined(_WIN32) || defined(__CYGWIN__)
-    STRING_FIND_LAST(s_ember_working_directory_, "\\");
+    index = STRING_FIND_LAST(s_ember_working_directory_, "\\");
 #else
-    STRING_FIND_LAST(s_ember_working_directory_, "/");
+    index = STRING_FIND_LAST(s_ember_working_directory_, "/");
 #endif
 
     if (index == -1) {
