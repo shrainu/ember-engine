@@ -48,10 +48,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.23.0/bin/cmake
+CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.23.1_1/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.23.0/bin/cmake -E rm -f
+RM = /opt/homebrew/Cellar/cmake/3.23.1_1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.23.0/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/homebrew/Cellar/cmake/3.23.1_1/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -200,6 +200,54 @@ src/engine/engine.s: src/engine/engine.c.s
 src/engine/engine.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/engine.c.s
 .PHONY : src/engine/engine.c.s
+
+src/engine/font.o: src/engine/font.c.o
+.PHONY : src/engine/font.o
+
+# target to build an object file
+src/engine/font.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/font.c.o
+.PHONY : src/engine/font.c.o
+
+src/engine/font.i: src/engine/font.c.i
+.PHONY : src/engine/font.i
+
+# target to preprocess a source file
+src/engine/font.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/font.c.i
+.PHONY : src/engine/font.c.i
+
+src/engine/font.s: src/engine/font.c.s
+.PHONY : src/engine/font.s
+
+# target to generate assembly for a file
+src/engine/font.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/font.c.s
+.PHONY : src/engine/font.c.s
+
+src/engine/input.o: src/engine/input.c.o
+.PHONY : src/engine/input.o
+
+# target to build an object file
+src/engine/input.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/input.c.o
+.PHONY : src/engine/input.c.o
+
+src/engine/input.i: src/engine/input.c.i
+.PHONY : src/engine/input.i
+
+# target to preprocess a source file
+src/engine/input.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/input.c.i
+.PHONY : src/engine/input.c.i
+
+src/engine/input.s: src/engine/input.c.s
+.PHONY : src/engine/input.s
+
+# target to generate assembly for a file
+src/engine/input.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/engine/input.c.s
+.PHONY : src/engine/input.c.s
 
 src/engine/renderer.o: src/engine/renderer.c.o
 .PHONY : src/engine/renderer.o
@@ -363,6 +411,12 @@ help:
 	@echo "... src/engine/engine.o"
 	@echo "... src/engine/engine.i"
 	@echo "... src/engine/engine.s"
+	@echo "... src/engine/font.o"
+	@echo "... src/engine/font.i"
+	@echo "... src/engine/font.s"
+	@echo "... src/engine/input.o"
+	@echo "... src/engine/input.i"
+	@echo "... src/engine/input.s"
 	@echo "... src/engine/renderer.o"
 	@echo "... src/engine/renderer.i"
 	@echo "... src/engine/renderer.s"

@@ -64,6 +64,7 @@ set(SOURCE_FILES
 
     # engine
     src/engine/font.c src/engine/font.h
+    src/engine/input.c src/engine/input.h
     src/engine/engine.c src/engine/engine.h
     src/engine/window.c src/engine/window.h
     src/engine/camera.c src/engine/camera.h

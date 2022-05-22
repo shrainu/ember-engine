@@ -3,7 +3,7 @@
 #include "common.h"
 
 // Decleration
-#define LIST_DECLARE(type) \
+#define LIST_DEFINE(type) \
     typedef struct list_##type##_t { \
         type* array; \
         uint32_t count; \
@@ -12,7 +12,7 @@
 
 #define LIST_TYPE(type) list_##type##_t* 
 
-#define LIST_PTR_DECLARE(type) \
+#define LIST_PTR_DEFINE(type) \
     typedef struct list_##type##_ptr_t {\
         type** array; \
         uint32_t count; \
@@ -46,7 +46,7 @@
 #define LIST_PUSH(list, item) \
     if (list->count == list->capacity) { \
         list->capacity *= 2; \
-        list->array = (typeof(list->array[0])*) realloc(list->array, list->capacity * sizeof(list->array[0])); \
+        list->array = realloc(list->array, list->capacity * sizeof(list->array[0])); \
     } \
     list->array[list->count++] = item
 

@@ -2,12 +2,11 @@
 
 Ember Game Engine is a lightweight game engine which is focused around simplicity.
 
-> Version 0.07
+> Version 0.08
 
 ## Patch Notes
 
-- Switched from yaml to toml for config files.
-- Included rust toml parser dependency
+- Input event system.
 
 ## Features
 

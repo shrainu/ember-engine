@@ -3,6 +3,7 @@
 #include "window.h"
 #include "renderer.h"
 #include "camera.h"
+#include "input.h"
 
 
 // Static
@@ -115,6 +116,9 @@ bool EMBER_InitEngine(int argc, char* argv[]) {
         return false;
     }
 
+    // Initialize the input
+    EMBER_InitInput();
+
     // Set the default projection
     EMBER_InitDefaultProjection();
 
@@ -122,6 +126,9 @@ bool EMBER_InitEngine(int argc, char* argv[]) {
 }
 
 void EMBER_TerminateEngine() {
+
+    // Terminate the input
+    EMBER_TerminateInput();
 
     // Terminate the renderer
     EMBER_TerminateRenderer();

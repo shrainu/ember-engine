@@ -6,6 +6,7 @@
 #include "engine/window.h"
 #include "engine/renderer.h"
 #include "engine/camera.h"
+#include "engine/input.h"
 
 
 int main(int argc, char* argv[]) {
@@ -59,9 +60,23 @@ int main(int argc, char* argv[]) {
         }
 
         // Events
-        if (glfwGetKey(window, GLFW_KEY_ESCAPE)) {
-            EMBER_SetWindowShouldClose(true);
+        LIST_TYPE(EMBER_Event) events = EMBER_GetEvents();
+
+        for (int32_t i =0; i < events->count; ++i) {
+            EMBER_Event e = LIST_GET(events, i);
+
+            switch (e.type) {
+            case EMBER_EVENT_KEY_PRESS:
+                if (e.key == GLFW_KEY_ESCAPE && e.action == EMBER_RELEASE) {
+                    EMBER_SetWindowShouldClose(true);
+                }
+                break;
+            default:
+                break;
+            }
         }
+
+        vec2s cursor_pos = EMBER_GetCursorPos();
 
         // Update
 
@@ -81,6 +96,12 @@ int main(int argc, char* argv[]) {
             );
         }
 
+        EMBER_RenderQuad(
+            (vec3) {cursor_pos.x, cursor_pos.y, -1.0},
+            (vec2) {50.0, 50.0},
+            (vec4) {0.0, 1.0, 0.0, 1.0}
+        );
+
         EMBER_CameraEnd();
         EMBER_ShaderUnbind();
 
@@ -98,7 +119,7 @@ int main(int argc, char* argv[]) {
         EMBER_ShaderUnbind();
 
         EMBER_SwapBuffers();
-        glfwPollEvents();
+        EMBER_PollEvents();
     }
 
     EMBER_TextureFree(texture);
