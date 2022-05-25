@@ -249,10 +249,34 @@ void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color) {
 
 // Render functions
 
-void EMBER_RenderTexture(const EMBER_Texture* texture, vec3 position, vec2 size, vec4 color) {
+void EMBER_RenderTexture(const EMBER_Texture* texture, vec4 source, vec3 position, vec2 size, vec4 color) {
 
     // Get the bound shader
     const EMBER_Shader* bound_shader = EMBER_GetBoundShader();
+
+    // Calculate source
+    mat4 source_matrix;
+    memset(source_matrix, 0, sizeof(vec4) * 4);
+
+    if (!source) {
+        source_matrix[0][0] = 0;
+        source_matrix[0][1] = 0;
+        source_matrix[1][0] = 1;
+        source_matrix[1][1] = 0;
+        source_matrix[2][0] = 1;
+        source_matrix[2][1] = 1;
+        source_matrix[3][0] = 0;
+        source_matrix[3][1] = 1;
+    } else {
+        source_matrix[0][0] = source[0];
+        source_matrix[0][1] = source[1];
+        source_matrix[1][0] = source[0] + source[2];
+        source_matrix[1][1] = source[1];
+        source_matrix[2][0] = source[0] + source[2];
+        source_matrix[2][1] = source[1] + source[3];
+        source_matrix[3][0] = source[0];
+        source_matrix[3][1] = source[1] + source[3];
+    }
 
     // Calculate model
     mat4 model;
@@ -274,6 +298,7 @@ void EMBER_RenderTexture(const EMBER_Texture* texture, vec3 position, vec2 size,
     EMBER_ShaderSetInt(bound_shader, "u_texture", 0);
     EMBER_ShaderSetVec4(bound_shader, "u_color", color);
     EMBER_ShaderSetMat4(bound_shader, "u_mvp", mvp);
+    EMBER_ShaderSetMat4(bound_shader, "u_source", source_matrix);
 
     // Bind the texture
     EMBER_TextureBind(texture, 0);

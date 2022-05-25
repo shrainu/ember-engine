@@ -51,7 +51,8 @@ set(SOURCE_FILES
     src/ember.h
 
     # src
-    src/main.c src/common.h
+    #src/main.c 
+    src/common.h
 
     # ember-std
     src/ember-std/map.h
@@ -60,7 +61,7 @@ set(SOURCE_FILES
     src/ember-std/string.h
 
     # ember-std/parser
-    src/ember-std/parser/parser.c   src/ember-std/parser/parser.h
+    #src/ember-std/parser/parser.c   src/ember-std/parser/parser.h
 
     # engine
     src/engine/font.c src/engine/font.h
@@ -74,10 +75,10 @@ set(SOURCE_FILES
 )
 
 # Executable
-add_executable(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
+#add_executable(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
 
 # Library
-#add_library(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
+add_library(ember-engine ${SOURCE_FILES} ${STB_IMAGE_FILES})
 
 # Find OpenGL
 find_package(OpenGL REQUIRED)

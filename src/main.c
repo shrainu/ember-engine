@@ -90,6 +90,7 @@ int main(int argc, char* argv[]) {
         for (int32_t i = 0; i < 1000; ++i) {
             EMBER_RenderTexture(
                 texture,
+                NULL,
                 (vec3){50.0f, 50.0f, -1.0f},
                 (vec2){75.0f, 75.0f},
                 (vec4){1.0f, 1.0f, 1.0f, 1.0f}

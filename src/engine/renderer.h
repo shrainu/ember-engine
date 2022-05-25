@@ -44,7 +44,7 @@ void EMBER_RenderQuad(vec3 position, vec2 size, vec4 color);
 // Render functions
 
 /* Renders a texture with given parameters */
-void EMBER_RenderTexture(const EMBER_Texture* texture, vec3 position, vec2 size, vec4 color);
+void EMBER_RenderTexture(const EMBER_Texture* texture, vec4 source, vec3 position, vec2 size, vec4 color);
 
 
 // Text Render Functions

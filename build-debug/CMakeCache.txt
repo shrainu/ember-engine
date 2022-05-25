@@ -205,7 +205,7 @@ ember-engine_BINARY_DIR:STATIC=/Users/batuhan/Documents/C/ember-engine/build-deb
 ember-engine_IS_TOP_LEVEL:STATIC=ON
 
 //Dependencies for the target
-ember-engine_LIB_DEPENDS:STATIC=general;OpenGL::GL;general;freetype.a;general;GLEW.a;general;glfw;
+ember-engine_LIB_DEPENDS:STATIC=general;OpenGL::GL;general;toml_parser.dylib;general;freetype.a;general;GLEW.a;general;glfw;
 
 //Value Computed by CMake
 ember-engine_SOURCE_DIR:STATIC=/Users/batuhan/Documents/C/ember-engine

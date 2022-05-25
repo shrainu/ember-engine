@@ -129,30 +129,6 @@ ember-engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/build
 .PHONY : ember-engine/fast
 
-src/ember-std/parser/parser.o: src/ember-std/parser/parser.c.o
-.PHONY : src/ember-std/parser/parser.o
-
-# target to build an object file
-src/ember-std/parser/parser.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.o
-.PHONY : src/ember-std/parser/parser.c.o
-
-src/ember-std/parser/parser.i: src/ember-std/parser/parser.c.i
-.PHONY : src/ember-std/parser/parser.i
-
-# target to preprocess a source file
-src/ember-std/parser/parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.i
-.PHONY : src/ember-std/parser/parser.c.i
-
-src/ember-std/parser/parser.s: src/ember-std/parser/parser.c.s
-.PHONY : src/ember-std/parser/parser.s
-
-# target to generate assembly for a file
-src/ember-std/parser/parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember-engine.dir/build.make CMakeFiles/ember-engine.dir/src/ember-std/parser/parser.c.s
-.PHONY : src/ember-std/parser/parser.c.s
-
 src/engine/camera.o: src/engine/camera.c.o
 .PHONY : src/engine/camera.o
 
@@ -402,9 +378,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ember-engine"
-	@echo "... src/ember-std/parser/parser.o"
-	@echo "... src/ember-std/parser/parser.i"
-	@echo "... src/ember-std/parser/parser.s"
 	@echo "... src/engine/camera.o"
 	@echo "... src/engine/camera.i"
 	@echo "... src/engine/camera.s"
